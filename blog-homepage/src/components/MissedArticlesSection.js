@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Author from './Author';
 import './ArticleSection.css';
 
-class YourArticlesSection extends React.Component {
+class MissedArticlesSection extends React.Component {
 
   static propTypes = {
     sectionTitle: PropTypes.string.isRequired,
@@ -31,17 +31,17 @@ class YourArticlesSection extends React.Component {
     return (
       <section>
         <h3>{sectionTitle}</h3>
-        <div className="articles grid-2-col">
+        <div className="articles grid-3-col">
           { 
             articles.map((article, idx) =>
-              <article key={idx} className="grid-left-thumbnail">
+              <article key={idx} className="grid-top-thumbnail">
                 <div className='thumbnail' style={{backgroundImage: `url(${article.image})`}}></div>
 
                 {article.hasAudioAvailable ?
-                  <div className="options audio">-A- Audio available</div> : ''}
+                  <div className="options audio">Audio available</div> : ''}
                 
                 {article.memberPreview ?
-                  <div className="options preview">-S-</div> : ''}
+                  <div className="options preview">-S- Member preview</div> : ''}
 
                 <div className="bookmark">-B-</div>
 
@@ -72,4 +72,4 @@ class YourArticlesSection extends React.Component {
   }
 }
 
-export default YourArticlesSection;
+export default MissedArticlesSection;

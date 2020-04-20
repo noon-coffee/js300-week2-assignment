@@ -1,20 +1,30 @@
+section {
+  margin-bottom: 100px;
+}
+
 h3 {
   border-bottom: 1px solid #e9e9e9;
   font-size: 25px;
   padding-bottom: 25px;
 }
 
-.articles.grid {
+.articles.grid-2-col {
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.articles.grid-3-col {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 article {
   border: 1px solid #e9e9e9;
 }
 
-article.grid {
+article.grid-left-thumbnail {
   display: grid;
   grid-gap: 1rem;
   grid-template-areas: 
@@ -27,26 +37,63 @@ article.grid {
   grid-template-rows: 50px 75px 150px 25px 50px;
   padding: 1px;
 }
-article .thumbnail { grid-area: thumbnail; }
-article .audio { grid-area: audio; }
-article .preview { grid-area: preview; }
-article .title { grid-area: title; }
-article .description { grid-area: description; }
-article .bookmark { grid-area: bookmark; }
-article .footer { grid-area: footer; }
-.author-thumbnail {grid-area: author-thumbnail; }
-.author-name {grid-area: author-name; }
+article.grid-left-thumbnail .thumbnail { grid-area: thumbnail; }
+article.grid-left-thumbnail .audio { grid-area: audio; }
+article.grid-left-thumbnail .preview { 
+  grid-area: preview; 
+  text-align: center;
+}
+article.grid-left-thumbnail .title { grid-area: title; }
+article.grid-left-thumbnail .description { grid-area: description; }
+article.grid-left-thumbnail .bookmark { 
+  grid-area: bookmark; 
+  text-align: center
+}
+article.grid-left-thumbnail .footer { grid-area: footer; }
+article.grid-left-thumbnail .author-thumbnail {grid-area: author-thumbnail; }
+article.grid-left-thumbnail .author-name {grid-area: author-name; }
+
+article.grid-top-thumbnail {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-areas: 
+    'thumbnail thumbnail thumbnail'
+    'preview preview audio'
+    'title title title'
+    'description description description'
+    'author-thumbnail author-name bookmark'
+    'author-thumbnail footer footer';
+  grid-template-columns: 75px auto 50px;
+  grid-template-rows: 200px auto auto auto 25px 50px;
+  padding: 1px;
+}
+article.grid-top-thumbnail .thumbnail { grid-area: thumbnail; }
+article.grid-top-thumbnail .audio { grid-area: audio; }
+article.grid-top-thumbnail .preview { 
+  grid-area: preview; 
+  padding-left: 20px;
+}
+article.grid-top-thumbnail .title { 
+  grid-area: title; 
+  padding-left: 20px;
+}
+article.grid-top-thumbnail .description { 
+  grid-area: description; 
+  padding-left: 20px;
+}
+article.grid-top-thumbnail .bookmark { grid-area: bookmark; }
+article.grid-top-thumbnail .footer { grid-area: footer; }
+article.grid-top-thumbnail .author-thumbnail {
+  grid-area: author-thumbnail; 
+  padding-left: 20px;
+}
+article.grid-top-thumbnail .author-name {grid-area: author-name; }
 
 article .thumbnail 
 { 
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-}
-
-article .preview,
-article .bookmark {
-  text-align: center;
 }
 
 article .title {

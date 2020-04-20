@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import YourArticlesSection from './components/YourArticlesSection';
+import MissedArticlesSection from './components/MissedArticlesSection';
 import yourArticles from './data/your-articles.json';
 import missedArticles from './data/missed-articles.json';
 
@@ -24,6 +25,7 @@ function App() {
       </header> */}
 
       <YourArticlesSection sectionTitle="For you" articles={yourArticles} />
+      <MissedArticlesSection sectionTitle="In case you missed it" articles={missedArticles} />
 
     </div>
   );
