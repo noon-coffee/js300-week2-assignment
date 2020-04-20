@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import ArticleSection from './components/ArticleSection';
+import YourArticlesSection from './components/YourArticlesSection';
 import yourArticles from './data/your-articles.json';
 import missedArticles from './data/missed-articles.json';
 
@@ -23,8 +23,7 @@ function App() {
         </a>
       </header> */}
 
-      <ArticleSection sectionTitle="For you" articles={yourArticles} />
-      <ArticleSection sectionTitle="In case you missed it" articles={missedArticles} />
+      <YourArticlesSection sectionTitle="For you" articles={yourArticles} />
 
     </div>
   );

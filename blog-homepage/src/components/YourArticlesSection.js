@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Author from './Author';
 import './ArticleSection.css';
 
-class ArticleSection extends React.Component {
+class YourArticlesSection extends React.Component {
 
   static propTypes = {
     sectionTitle: PropTypes.string.isRequired,
@@ -72,4 +72,4 @@ class ArticleSection extends React.Component {
   }
 }
 
-export default ArticleSection;
+export default YourArticlesSection;
