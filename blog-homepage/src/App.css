@@ -1,5 +1,7 @@
 .App {
   /* text-align: center; */
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+  margin: 30px 80px;
 }
 
 .App-logo {

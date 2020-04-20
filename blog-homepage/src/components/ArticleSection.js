@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Author from './Author';
+import './ArticleSection.css';
 
 class ArticleSection extends React.Component {
 
@@ -29,18 +30,45 @@ class ArticleSection extends React.Component {
 
     return (
       <section>
-        <h1>{sectionTitle}</h1>
-        <hr />
-        { 
-          articles.map((article, idx) => 
-            <article key={idx}>
-              <div>{article.title}</div>
-              <Author author={article.author} />
-            </article>
-          )
-        }
+        <h3>{sectionTitle}</h3>
+        <div className="articles grid">
+          { 
+            articles.map((article, idx) =>
+              <article key={idx} className="grid">
+                <div className='thumbnail' style={{backgroundImage: `url(${article.image})`}}></div>
+
+                {article.hasAudioAvailable ?
+                  <div className="options audio">Audio available</div> : ''}
+                
+                {article.memberPreview ?
+                  <div className="options preview">MP</div> : ''}
+
+                <div className="bookmark">B</div>
+
+                <div className="title">{article.title}</div>
+
+                <div className="description">{article.description}</div>
+
+                <Author author={article.author} />
+
+                <div className="footer">
+                  { this.formatArticleDate(article.postedDate) }
+                  <span className="spacer">·</span>
+                  {article.minutesToRead} min read
+                </div>
+              </article>
+            )
+          }
+        </div>
       </section>
     );
+  }
+
+  formatArticleDate(dateString) {
+    const date = new Date(dateString);
+    const month = date.toLocaleString('default', {month: 'short'})
+    const day = date.getDate();
+    return `${month} ${day}`;
   }
 }
 
