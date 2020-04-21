@@ -34,21 +34,21 @@ class YourArticlesSection extends React.Component {
         <div className="articles grid-2-col">
           { 
             articles.map((article, idx) =>
-              <article key={idx} className="grid-left-thumbnail">
-                <div className='thumbnail' style={{backgroundImage: `url(${article.image})`}}></div>
+              <article key={idx} className="grid-left-image">
+                <div className='image' style={{backgroundImage: `url(${article.image})`}}></div>
 
                 {article.hasAudioAvailable ?
                   <div className="options audio">
-                    <span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span> Audio available
+                    <span className="glyphicon glyphicon-volume-up" aria-hidden="true"></span> Audio available
                   </div> : ''}
                 
                 {article.memberPreview ?
                   <div className="options preview">
-                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    <span className="glyphicon glyphicon-star" aria-hidden="true"></span>
                   </div> : ''}
 
                 <div className="bookmark">
-                  <span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
+                  <span className="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
                 </div>
 
                 <div className="title">{article.title}</div>

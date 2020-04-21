@@ -12,6 +12,7 @@ h3 {
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(2, 1fr);
+  
 }
 
 .articles.grid-3-col {
@@ -24,72 +25,66 @@ article {
   border: 1px solid #e9e9e9;
 }
 
-article.grid-left-thumbnail {
+article.grid-left-image {
   display: grid;
   grid-gap: 1rem;
   grid-template-areas: 
-    'thumbnail audio audio preview'
-    'thumbnail title title title'
-    'thumbnail description description description'
-    'thumbnail author-thumbnail author-name bookmark'
-    'thumbnail author-thumbnail footer footer';
-  grid-template-columns: 300px 50px auto 50px;
-  grid-template-rows: 50px 75px 150px 25px 50px;
+    'image audio audio preview'
+    'image title title title'
+    'image description description description'
+    'image author-image author-name bookmark'
+    'image author-image footer footer';
+  grid-template-columns: 220px 50px auto 50px;
+  grid-template-rows: minmax(25px, auto) minmax(25px, auto) minmax(170px, auto) minmax(15px, auto) minmax(15px, auto);
   padding: 1px;
 }
-article.grid-left-thumbnail .thumbnail { grid-area: thumbnail; }
-article.grid-left-thumbnail .audio { grid-area: audio; }
-article.grid-left-thumbnail .preview { 
-  grid-area: preview; 
-  text-align: center;
-}
-article.grid-left-thumbnail .title { grid-area: title; }
-article.grid-left-thumbnail .description { grid-area: description; }
-article.grid-left-thumbnail .bookmark { 
-  grid-area: bookmark; 
-  text-align: center
-}
-article.grid-left-thumbnail .footer { grid-area: footer; }
-article.grid-left-thumbnail .author-thumbnail {grid-area: author-thumbnail; }
-article.grid-left-thumbnail .author-name {grid-area: author-name; }
+article.grid-left-image .image { grid-area: image; }
+article.grid-left-image .audio { grid-area: audio; }
+article.grid-left-image .preview { grid-area: preview; }
+article.grid-left-image .title { grid-area: title; }
+article.grid-left-image .description { grid-area: description; }
+article.grid-left-image .bookmark { grid-area: bookmark; }
+article.grid-left-image .footer { grid-area: footer; }
+article.grid-left-image .author-image {grid-area: author-image; }
+article.grid-left-image .author-name {grid-area: author-name; }
 
-article.grid-top-thumbnail {
+article.grid-top-image {
   display: grid;
   grid-gap: 1rem;
   grid-template-areas: 
-    'thumbnail thumbnail thumbnail'
+    'image image image'
     'preview preview audio'
     'title title title'
     'description description description'
-    'author-thumbnail author-name bookmark'
-    'author-thumbnail footer footer';
-  grid-template-columns: 75px auto 50px;
-  grid-template-rows: 200px auto auto auto 25px 50px;
+    'author-image author-name bookmark'
+    'author-image footer footer';
+  grid-template-columns: 70px auto 50px;
+  grid-template-rows: 200px auto auto auto auto auto;
   padding: 1px;
 }
-article.grid-top-thumbnail .thumbnail { grid-area: thumbnail; }
-article.grid-top-thumbnail .audio { grid-area: audio; }
-article.grid-top-thumbnail .preview { 
+article.grid-top-image .image { grid-area: image; }
+article.grid-top-image .audio { grid-area: audio; }
+article.grid-top-image .preview { 
   grid-area: preview; 
   padding-left: 20px;
 }
-article.grid-top-thumbnail .title { 
+article.grid-top-image .title { 
   grid-area: title; 
   padding-left: 20px;
 }
-article.grid-top-thumbnail .description { 
+article.grid-top-image .description { 
   grid-area: description; 
   padding-left: 20px;
 }
-article.grid-top-thumbnail .bookmark { grid-area: bookmark; }
-article.grid-top-thumbnail .footer { grid-area: footer; }
-article.grid-top-thumbnail .author-thumbnail {
-  grid-area: author-thumbnail; 
+article.grid-top-image .bookmark { grid-area: bookmark; }
+article.grid-top-image .footer { grid-area: footer; }
+article.grid-top-image .author-image {
+  grid-area: author-image; 
   padding-left: 20px;
 }
-article.grid-top-thumbnail .author-name {grid-area: author-name; }
+article.grid-top-image .author-name {grid-area: author-name; }
 
-article .thumbnail 
+article .image 
 { 
   background-repeat: no-repeat;
   background-position: center center;
@@ -97,25 +92,25 @@ article .thumbnail
 }
 
 article .title {
-  font-size: 25px;
+  font-size: 18px;
 }
 
 article .description {
   color: #8c8c8c;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 article .footer,
 article .options {
   color: #8c8c8c;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 article .footer .spacer {
   padding: 0px 4px;
 }
 
-.author-thumbnail img {
+.author-image img {
   border-radius: 50%;
   height: 53px;
   padding: 4px;
@@ -128,6 +123,6 @@ article .footer .spacer {
 }
 
 .author-name {
-  font-size: 18px;
+  font-size: 14px;
 }
 

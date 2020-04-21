@@ -15,7 +15,7 @@ class Author extends React.Component {
 
     return (
       <>
-        <span className={`author-thumbnail ${isMediumMember ? 'author-is-member' : ''}`}>
+        <span className={`author-image ${isMediumMember ? 'author-is-member' : ''}`}>
           <img src={image} alt={name} />
         </span>
         <span className="author-name">{name}</span>
