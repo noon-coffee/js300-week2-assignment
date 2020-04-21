@@ -109,3 +109,10 @@ article .footer .spacer {
 .glyphicon.bookmarked {
   color: #005500;
 }
+
+a {
+  color: inherit;
+}
+a:hover {
+  text-decoration: none;
+}

@@ -60,7 +60,8 @@ class MissedArticle extends React.Component {
             <span onClick={this.toggleBookmark} className={`glyphicon glyphicon-bookmark ${this.state.isBookmarkOn && 'bookmarked'}`} aria-hidden="true"></span>
         </div>
 
-        <div className="title">{article.title}</div>
+        {/* BONUS: Make each card clickable (title). */}
+        <div className="title"><a href={article.link} target="_blank" rel="noopener noreferrer">{article.title}</a></div>
 
         <div className="description">{article.description}</div>
 
