@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Author from './Author';
 import './ArticleSection.css';
+import Utils from './Utils';
 
 class MissedArticlesSection extends React.Component {
 
@@ -26,55 +27,39 @@ class MissedArticlesSection extends React.Component {
   }
 
   render() {
-    const {sectionTitle, articles} = this.props;
+    const {index, article} = this.props;
 
     return (
-      <section>
-        <h3>{sectionTitle}</h3>
-        <div className="articles grid-3-col">
-          { 
-            articles.map((article, idx) =>
-              <article key={idx} className="grid-top-image">
-                <div className='image' style={{backgroundImage: `url(${article.image})`}}></div>
+      <article key={index} className="grid-top-image">
+        <div className='image' style={{backgroundImage: `url(${article.image})`}}></div>
 
-                {article.hasAudioAvailable ?
-                  <div className="options audio">
-                    <span className="glyphicon glyphicon-volume-up" aria-hidden="true"></span> Audio available
-                  </div> : ''}
-                
-                {article.memberPreview ?
-                  <div className="options preview">
-                    <span className="glyphicon glyphicon-star" aria-hidden="true"></span> Member preview
-                  </div> : ''}
+        {article.hasAudioAvailable ?
+          <div className="options audio">
+            <span className="glyphicon glyphicon-volume-up" aria-hidden="true"></span> Audio available
+          </div> : ''}
+        
+        {article.memberPreview ?
+          <div className="options preview">
+            <span className="glyphicon glyphicon-star" aria-hidden="true"></span> Member preview
+          </div> : ''}
 
-                <div className="bookmark">
-                  <span className="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
-                </div>
-
-                <div className="title">{article.title}</div>
-
-                <div className="description">{article.description}</div>
-
-                <Author author={article.author} />
-
-                <div className="footer">
-                  { this.formatArticleDate(article.postedDate) }
-                  <span className="spacer">·</span>
-                  {article.minutesToRead} min read
-                </div>
-              </article>
-            )
-          }
+        <div className="bookmark">
+          <span className="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
         </div>
-      </section>
-    );
-  }
 
-  formatArticleDate(dateString) {
-    const date = new Date(dateString);
-    const month = date.toLocaleString('default', {month: 'short'})
-    const day = date.getDate();
-    return `${month} ${day}`;
+        <div className="title">{article.title}</div>
+
+        <div className="description">{article.description}</div>
+
+        <Author author={article.author} />
+
+        <div className="footer">
+          { Utils.formatArticleDate(article.postedDate) }
+          <span className="spacer">·</span>
+          {article.minutesToRead} min read
+        </div>
+      </article>
+    );
   }
 }
 

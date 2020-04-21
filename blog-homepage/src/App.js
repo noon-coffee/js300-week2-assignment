@@ -24,8 +24,22 @@ function App() {
         </a>
       </header> */}
 
-      <YourArticlesSection sectionTitle="For you" articles={yourArticles} />
-      <MissedArticlesSection sectionTitle="In case you missed it" articles={missedArticles} />
+      {/* <YourArticlesSection sectionTitle="For you" articles={yourArticles} />
+      <MissedArticlesSection sectionTitle="In case you missed it" articles={missedArticles} /> */}
+
+      <section>
+        <h3>For you</h3>
+        <div className="articles grid-2-col">
+          { yourArticles.map((article, idx) => <YourArticlesSection index={idx} article={article} />)}
+        </div>
+      </section>
+
+      <section>
+        <h3>In case you missed it</h3>
+        <div className="articles grid-3-col">
+          { missedArticles.map((article, idx) => <MissedArticlesSection index={idx} article={article} />)}
+        </div>
+      </section>
 
     </div>
   );
