@@ -25,6 +25,19 @@ class MissedArticle extends React.Component {
 
   }
 
+  constructor(props) {
+    super(props);
+    this.state = { isBookmarkOn: false };
+    this.toggleBookmark = this.toggleBookmark.bind(this);
+  }
+
+  toggleBookmark() {
+    this.setState(state => ({
+      isBookmarkOn: !state.isBookmarkOn
+    }));
+    console.log('clicked');
+  }
+
   render() {
     const {article} = this.props;
 
@@ -32,18 +45,19 @@ class MissedArticle extends React.Component {
       <article className="grid-top-image">
         <div className='image' style={{backgroundImage: `url(${article.image})`}}></div>
 
-        {article.hasAudioAvailable ?
+        {article.hasAudioAvailable &&
           <div className="options audio">
             <span className="glyphicon glyphicon-volume-up" aria-hidden="true"></span> Audio available
-          </div> : ''}
+          </div>}
         
-        {article.memberPreview ?
+        {article.memberPreview &&
           <div className="options preview">
             <span className="glyphicon glyphicon-star" aria-hidden="true"></span> Member preview
-          </div> : ''}
+          </div>}
 
+        {/* BONUS: Make each bookmark component clickable. */}
         <div className="bookmark">
-          <span className="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
+            <span onClick={this.toggleBookmark} className={`glyphicon glyphicon-bookmark ${this.state.isBookmarkOn && 'bookmarked'}`} aria-hidden="true"></span>
         </div>
 
         <div className="title">{article.title}</div>

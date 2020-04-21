@@ -106,3 +106,6 @@ article .footer .spacer {
   font-size: 14px;
 }
 
+.glyphicon.bookmarked {
+  color: #005500;
+}
