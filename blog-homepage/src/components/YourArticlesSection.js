@@ -7,8 +7,7 @@ import Utils from './Utils'
 class YourArticlesSection extends React.Component {
 
   static propTypes = {
-    sectionTitle: PropTypes.string.isRequired,
-    articles: PropTypes.arrayOf(PropTypes.exact({
+    article: PropTypes.exact({
       title: PropTypes.string,
       description: PropTypes.string,
       image: PropTypes.string,
@@ -22,15 +21,14 @@ class YourArticlesSection extends React.Component {
       minutesToRead: PropTypes.number,
       hasAudioAvailable: PropTypes.bool,
       memberPreview: PropTypes.bool,
-    })).isRequired,
-
+    }).isRequired,
   }
 
   render() {
-    const {index, article} = this.props;
+    const {article} = this.props;
 
     return (
-      <article key={index} className="grid-left-image">
+      <article className="grid-left-image">
         <div className='image' style={{backgroundImage: `url(${article.image})`}}></div>
 
         {article.hasAudioAvailable ?

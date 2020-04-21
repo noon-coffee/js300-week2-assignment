@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import YourArticlesSection from './components/YourArticlesSection';
 import MissedArticlesSection from './components/MissedArticlesSection';
@@ -30,14 +29,14 @@ function App() {
       <section>
         <h3>For you</h3>
         <div className="articles grid-2-col">
-          { yourArticles.map((article, idx) => <YourArticlesSection index={idx} article={article} />)}
+          { yourArticles.map((article, idx) => <YourArticlesSection key={idx} article={article} />)}
         </div>
       </section>
 
       <section>
         <h3>In case you missed it</h3>
         <div className="articles grid-3-col">
-          { missedArticles.map((article, idx) => <MissedArticlesSection index={idx} article={article} />)}
+          { missedArticles.map((article, idx) => <MissedArticlesSection key={idx} article={article} />)}
         </div>
       </section>
 
