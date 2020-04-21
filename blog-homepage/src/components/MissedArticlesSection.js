@@ -38,12 +38,18 @@ class MissedArticlesSection extends React.Component {
                 <div className='thumbnail' style={{backgroundImage: `url(${article.image})`}}></div>
 
                 {article.hasAudioAvailable ?
-                  <div className="options audio">Audio available</div> : ''}
+                  <div className="options audio">
+                    <span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span> Audio available
+                  </div> : ''}
                 
                 {article.memberPreview ?
-                  <div className="options preview">-S- Member preview</div> : ''}
+                  <div className="options preview">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Member preview
+                  </div> : ''}
 
-                <div className="bookmark">-B-</div>
+                <div className="bookmark">
+                  <span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
+                </div>
 
                 <div className="title">{article.title}</div>
 
