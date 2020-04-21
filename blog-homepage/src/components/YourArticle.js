@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Author from './Author';
 import './Article.css';
-import Utils from './Utils';
+import Utils from './Utils'
 
-class MissedArticlesSection extends React.Component {
+class YourArticle extends React.Component {
 
   static propTypes = {
     article: PropTypes.exact({
@@ -22,14 +22,13 @@ class MissedArticlesSection extends React.Component {
       hasAudioAvailable: PropTypes.bool,
       memberPreview: PropTypes.bool,
     }).isRequired,
-
   }
 
   render() {
     const {article} = this.props;
 
     return (
-      <article className="grid-top-image">
+      <article className="grid-left-image">
         <div className='image' style={{backgroundImage: `url(${article.image})`}}></div>
 
         {article.hasAudioAvailable ?
@@ -39,7 +38,7 @@ class MissedArticlesSection extends React.Component {
         
         {article.memberPreview ?
           <div className="options preview">
-            <span className="glyphicon glyphicon-star" aria-hidden="true"></span> Member preview
+            <span className="glyphicon glyphicon-star" aria-hidden="true"></span>
           </div> : ''}
 
         <div className="bookmark">
@@ -62,4 +61,4 @@ class MissedArticlesSection extends React.Component {
   }
 }
 
-export default MissedArticlesSection;
+export default YourArticle;
