@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Author from './Author';
-import './ArticleSection.css';
+import './Article.css';
 import Utils from './Utils'
 
 class YourArticlesSection extends React.Component {
