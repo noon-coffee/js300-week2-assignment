@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Author from './Author';
 import './Article.css';
 import Utils from './Utils'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBookmark, faStar, faVolumeUp } from '@fortawesome/free-solid-svg-icons';
 
 class YourArticle extends React.Component {
 
@@ -24,6 +26,19 @@ class YourArticle extends React.Component {
     }).isRequired,
   }
 
+  constructor(props) {
+    super(props);
+    this.state = { isBookmarkOn: false };
+    this.toggleBookmark = this.toggleBookmark.bind(this);
+  }
+
+  toggleBookmark() {
+    this.setState(state => ({
+      isBookmarkOn: !state.isBookmarkOn
+    }));
+    console.log('clicked');
+  }
+
   render() {
     const {article} = this.props;
 
@@ -31,21 +46,25 @@ class YourArticle extends React.Component {
       <article className="grid-left-image">
         <div className='image' style={{backgroundImage: `url(${article.image})`}}></div>
 
-        {article.hasAudioAvailable ?
+        {article.hasAudioAvailable &&
           <div className="options audio">
-            <span className="glyphicon glyphicon-volume-up" aria-hidden="true"></span> Audio available
-          </div> : ''}
+            <FontAwesomeIcon className="icon audio" icon={faVolumeUp} /> Audio available
+          </div>}
         
-        {article.memberPreview ?
+        {article.memberPreview &&
           <div className="options preview">
-            <span className="glyphicon glyphicon-star" aria-hidden="true"></span>
-          </div> : ''}
+            <FontAwesomeIcon className="icon star" icon={faStar} />
+          </div>}
 
         <div className="bookmark">
-          <span className="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
+            <FontAwesomeIcon 
+              onClick={this.toggleBookmark} 
+              className={`icon bookmark ${this.state.isBookmarkOn && 'isBookmarkOn'}`} 
+              icon={faBookmark} 
+            />
         </div>
 
-        <div className="title">{article.title}</div>
+        <div className="title"><a href={article.link} target="_blank" rel="noopener noreferrer">{article.title}</a></div>
 
         <div className="description">{article.description}</div>
 

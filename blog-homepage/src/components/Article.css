@@ -106,13 +106,26 @@ article .footer .spacer {
   font-size: 14px;
 }
 
-.glyphicon.bookmarked {
-  color: #005500;
+.icon {
+  color: #545454;
+}
+.icon.bookmark {
+  color: white;
+  filter: drop-shadow(0 0 1.2px #000);
+}
+.icon.isBookmarkOn {
+  color: #bada55;
+}
+.icon.star {
+  font-size: 11px;
 }
 
 a {
   color: inherit;
+  text-decoration: none;
 }
 a:hover {
+  background-color: #f1f7dd;
+  border-radius: 3px;
   text-decoration: none;
 }

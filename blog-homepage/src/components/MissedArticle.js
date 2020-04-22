@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Author from './Author';
 import './Article.css';
 import Utils from './Utils';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBookmark, faStar, faVolumeUp } from '@fortawesome/free-solid-svg-icons';
 
 class MissedArticle extends React.Component {
 
@@ -47,17 +49,21 @@ class MissedArticle extends React.Component {
 
         {article.hasAudioAvailable &&
           <div className="options audio">
-            <span className="glyphicon glyphicon-volume-up" aria-hidden="true"></span> Audio available
+            <FontAwesomeIcon className="icon audio" icon={faVolumeUp} /> Audio available
           </div>}
         
         {article.memberPreview &&
           <div className="options preview">
-            <span className="glyphicon glyphicon-star" aria-hidden="true"></span> Member preview
+            <FontAwesomeIcon className="icon star" icon={faStar} /> Member preview
           </div>}
 
         {/* BONUS: Make each bookmark component clickable. */}
         <div className="bookmark">
-            <span onClick={this.toggleBookmark} className={`glyphicon glyphicon-bookmark ${this.state.isBookmarkOn && 'bookmarked'}`} aria-hidden="true"></span>
+            <FontAwesomeIcon 
+              onClick={this.toggleBookmark} 
+              className={`icon bookmark ${this.state.isBookmarkOn && 'isBookmarkOn'}`} 
+              icon={faBookmark} 
+            />
         </div>
 
         {/* BONUS: Make each card clickable (title). */}
